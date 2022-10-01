@@ -18,6 +18,7 @@ namespace Galaxy_Conqueror
         int speed = 10;
         int playerEnergy = 100;
         int fighterSpeed = 3;
+        int score;
         Random randNum = new Random();
 
         List<PictureBox> fightersList = new List<PictureBox>();
@@ -29,7 +30,35 @@ namespace Galaxy_Conqueror
 
         private void MainTimerEvent(object sender, EventArgs e)
         {
+            if (playerHealth > 0)
+            {
+                healthBar.Value = playerHealth;
+            }
+            else 
+            {
+                gameOver = true;
+            }
 
+            txtScore.Text = "Score: " + score;
+
+            if (goLeft == true && player.Left > 0)
+            {
+                player.Left -= speed;
+            }
+
+            if (goRight == true && player.Left  + player.Width < this.ClientSize.Width)
+            {
+                player.Left += speed;
+            }
+
+            if (goUp == true && player.Top > 75)
+            {
+                player.Top -= speed;
+            }
+            if (goDown == true && player.Top + player.Height < this.ClientSize.Height)
+            {
+                player.Top += speed;
+            }
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
@@ -69,6 +98,11 @@ namespace Galaxy_Conqueror
             if (e.KeyCode == Keys.Down)
             {
                 goDown = false;
+            }
+
+            if (e.KeyCode == Keys.Space)
+            {
+                ShootBullet();
             }
         }
 
