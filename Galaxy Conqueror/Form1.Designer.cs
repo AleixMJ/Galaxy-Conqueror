@@ -102,6 +102,7 @@
             // 
             this.GameTimer.Enabled = true;
             this.GameTimer.Interval = 20;
+            this.GameTimer.Tick += new System.EventHandler(this.MainTimerEvent);
             // 
             // Form1
             // 
@@ -117,6 +118,8 @@
             this.Controls.Add(this.txtEnergy);
             this.Name = "Form1";
             this.Text = "Galaxy Conqueror";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
