@@ -28,11 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtEnergy = new System.Windows.Forms.Label();
             this.txtScore = new System.Windows.Forms.Label();
             this.txtHealth = new System.Windows.Forms.Label();
             this.healthBar = new System.Windows.Forms.ProgressBar();
             this.energyBar = new System.Windows.Forms.ProgressBar();
+            this.player = new System.Windows.Forms.PictureBox();
+            this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
             // txtEnergy
@@ -84,12 +88,28 @@
             this.energyBar.TabIndex = 5;
             this.energyBar.Value = 100;
             // 
+            // player
+            // 
+            this.player.Image = global::Galaxy_Conqueror.Properties.Resources.Main_Ship___Base___Full_health;
+            this.player.Location = new System.Drawing.Point(629, 546);
+            this.player.Name = "player";
+            this.player.Size = new System.Drawing.Size(48, 48);
+            this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.player.TabIndex = 6;
+            this.player.TabStop = false;
+            // 
+            // GameTimer
+            // 
+            this.GameTimer.Enabled = true;
+            this.GameTimer.Interval = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.player);
             this.Controls.Add(this.energyBar);
             this.Controls.Add(this.healthBar);
             this.Controls.Add(this.txtHealth);
@@ -97,6 +117,7 @@
             this.Controls.Add(this.txtEnergy);
             this.Name = "Form1";
             this.Text = "Galaxy Conqueror";
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,6 +130,8 @@
         private System.Windows.Forms.Label txtHealth;
         private System.Windows.Forms.ProgressBar healthBar;
         private System.Windows.Forms.ProgressBar energyBar;
+        private System.Windows.Forms.PictureBox player;
+        private System.Windows.Forms.Timer GameTimer;
     }
 }
 
