@@ -33,8 +33,25 @@ namespace Galaxy_Conqueror
             form.Controls.Add(bullet);
 
             bulletTimer.Interval = speed;
-            bulletTimer += new EventHandler(BulletTimerEvent);
+            bulletTimer.Tick += new EventHandler(BulletTimerEvent);
             bulletTimer.Start();
+
+        }
+
+        private void BulletTimerEvent(object sender, EventArgs e)
+        {
+
+            bullet.Top -= speed;
+
+            if (bullet.Top < 10)
+            {
+                bulletTimer.Stop();
+                bulletTimer.Dispose();
+                bullet.Dispose();
+                bulletTimer = null;
+                bullet = null;
+            }
+
 
         }
     }

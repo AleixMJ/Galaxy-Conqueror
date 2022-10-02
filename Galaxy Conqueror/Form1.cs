@@ -109,7 +109,10 @@ namespace Galaxy_Conqueror
 
         private void ShootBullet()
         {
-
+            Bullet shootBullet = new Bullet();
+            shootBullet.bulletLeft = player.Left + (player.Width /2);
+            shootBullet.bulletTop = player.Top + (player.Height / 2);
+            shootBullet.MakeBullet(this);
         }
 
         private void MakeFighters() 
