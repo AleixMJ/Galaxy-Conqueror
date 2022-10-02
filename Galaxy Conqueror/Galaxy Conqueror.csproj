@@ -84,5 +84,8 @@
   <ItemGroup>
     <None Include="assets\player\Main Ship - Base - Full health.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Fleet1\fighter\Base.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -63,6 +63,16 @@ namespace Galaxy_Conqueror.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Base {
+            get {
+                object obj = ResourceManager.GetObject("Base", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Main_Ship___Base___Full_health {
             get {
                 object obj = ResourceManager.GetObject("Main Ship - Base - Full health", resourceCulture);

@@ -117,7 +117,9 @@ namespace Galaxy_Conqueror
 
         private void MakeFighters() 
         {
-            
+            PictureBox fighter = new PictureBox();
+            fighter.Tag = "fighter";
+            fighter.Image = Properties.Resources.
         }
 
         private void RestartGame()
