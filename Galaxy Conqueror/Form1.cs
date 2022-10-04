@@ -78,6 +78,13 @@ namespace Galaxy_Conqueror
 
                 if (x is PictureBox && (string)x.Tag == "fighter")
                 {
+
+                    if (player.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        playerHealth -= 1;
+                    }    
+
+
                     x.Top += 2;
                 }
 
@@ -104,6 +111,13 @@ namespace Galaxy_Conqueror
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
+
+            if (gameOver == true)
+            {
+                return;
+            }
+
+
             if (e.KeyCode == Keys.Left)
             {
                 goLeft = true;
@@ -141,7 +155,7 @@ namespace Galaxy_Conqueror
                 goDown = false;
             }
 
-            if (e.KeyCode == Keys.Space && playerEnergy > 0)
+            if (e.KeyCode == Keys.Space && playerEnergy > 0 && gameOver == false)
             {
                 playerEnergy--;
                 energyBar.Value --;
