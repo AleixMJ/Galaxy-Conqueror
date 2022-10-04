@@ -93,9 +93,49 @@ namespace Galaxy_Conqueror.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Main_Ship___Base___Damaged {
+            get {
+                object obj = ResourceManager.GetObject("Main Ship - Base - Damaged", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Main_Ship___Base___Full_health {
             get {
                 object obj = ResourceManager.GetObject("Main Ship - Base - Full health", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Main_Ship___Base___Full_health1 {
+            get {
+                object obj = ResourceManager.GetObject("Main Ship - Base - Full health1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Main_Ship___Base___Slight_damage {
+            get {
+                object obj = ResourceManager.GetObject("Main Ship - Base - Slight damage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Main_Ship___Base___Very_damaged {
+            get {
+                object obj = ResourceManager.GetObject("Main Ship - Base - Very damaged", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

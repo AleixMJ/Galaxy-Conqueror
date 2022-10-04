@@ -63,6 +63,22 @@ namespace Galaxy_Conqueror
                 player.Top += speed;
             }
 
+            if (playerHealth > 50 && playerHealth <= 75)
+            {
+                player.Image = Properties.Resources.Main_Ship___Base___Slight_damage;
+            }
+
+            if (playerHealth > 25 && playerHealth <= 50)
+            {
+                player.Image = Properties.Resources.Main_Ship___Base___Damaged;
+            }
+
+            if (playerHealth <= 25)
+            {
+                player.Image = Properties.Resources.Main_Ship___Base___Very_damaged;
+            }
+
+
             foreach (Control x in this.Controls)
             {
                 if (x is PictureBox && (string)x.Tag == "energy")
@@ -166,6 +182,11 @@ namespace Galaxy_Conqueror
                     DropEnergy();
                 }
             }
+
+            if (e.KeyCode == Keys.Enter && gameOver == true)
+            {
+                RestartGame();
+            }
         }
 
         private void ShootBullet()
@@ -223,6 +244,7 @@ namespace Galaxy_Conqueror
             goDown = false;
             goLeft = false;
             goRight = false;
+            gameOver = false;
 
             playerHealth = 100;
             playerEnergy = 100;

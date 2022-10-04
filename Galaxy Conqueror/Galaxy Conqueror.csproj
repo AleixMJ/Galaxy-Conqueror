@@ -93,5 +93,14 @@
   <ItemGroup>
     <None Include="assets\energy.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\player\Main Ship - Base - Damaged.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\player\Main Ship - Base - Slight damage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\player\Main Ship - Base - Very damaged.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
