@@ -119,8 +119,28 @@ namespace Galaxy_Conqueror
         {
             PictureBox fighter = new PictureBox();
             fighter.Tag = "fighter";
-            fighter.Image = Properties.Resources.
+            fighter.Image = Properties.Resources.Kla_ed___Fighter___Base;
+            fighter.Left = randNum.Next(10, this.ClientSize.Width - fighter.Width);
+            fighter.Top = 0;
+            fighter.SizeMode = PictureBoxSizeMode.AutoSize;
+            fightersList.Add(fighter);
+            this.Controls.Add(fighter);
+            player.BringToFront();
         }
+
+        private void DropEnergy()
+        {
+            PictureBox energy = new PictureBox();
+            energy.Image = Properties.Resources.energy;
+            energy.SizeMode = PictureBoxSizeMode.AutoSize;
+            energy.Left = randNum.Next(10, this.ClientSize.Width - energy.Width);
+            energy.Top = randNum.Next(10, this.ClientSize.Height - energy.Height);
+            energy.Tag = "energy";
+            this.Controls.Add(energy);
+            energy.BringToFront();
+            player.BringToFront();
+        }
+
 
         private void RestartGame()
         {

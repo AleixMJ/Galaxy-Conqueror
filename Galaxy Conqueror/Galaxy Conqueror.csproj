@@ -87,5 +87,11 @@
   <ItemGroup>
     <None Include="assets\Fleet1\fighter\Base.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Fleet1\fighter\Kla%27ed - Fighter - Base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\energy.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

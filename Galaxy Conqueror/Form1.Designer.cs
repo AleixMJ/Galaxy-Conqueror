@@ -34,8 +34,8 @@
             this.txtHealth = new System.Windows.Forms.Label();
             this.healthBar = new System.Windows.Forms.ProgressBar();
             this.energyBar = new System.Windows.Forms.ProgressBar();
-            this.player = new System.Windows.Forms.PictureBox();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.player = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,6 +88,12 @@
             this.energyBar.TabIndex = 5;
             this.energyBar.Value = 100;
             // 
+            // GameTimer
+            // 
+            this.GameTimer.Enabled = true;
+            this.GameTimer.Interval = 20;
+            this.GameTimer.Tick += new System.EventHandler(this.MainTimerEvent);
+            // 
             // player
             // 
             this.player.Image = global::Galaxy_Conqueror.Properties.Resources.Main_Ship___Base___Full_health;
@@ -97,12 +103,6 @@
             this.player.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.player.TabIndex = 6;
             this.player.TabStop = false;
-            // 
-            // GameTimer
-            // 
-            this.GameTimer.Enabled = true;
-            this.GameTimer.Interval = 20;
-            this.GameTimer.Tick += new System.EventHandler(this.MainTimerEvent);
             // 
             // Form1
             // 
