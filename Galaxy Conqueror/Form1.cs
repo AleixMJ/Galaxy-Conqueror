@@ -19,7 +19,7 @@ namespace Galaxy_Conqueror
         int speed = 10;
         int playerEnergy = 100;
         int fighterSpeed = 3;
-        int score;
+        int score;        
         Random randNum = new Random();
 
         List<PictureBox> fightersList = new List<PictureBox>();
@@ -27,6 +27,7 @@ namespace Galaxy_Conqueror
         public Form1()
         {
             InitializeComponent();
+            RestartGame();
         }
 
         private void MainTimerEvent(object sender, EventArgs e)
@@ -38,6 +39,7 @@ namespace Galaxy_Conqueror
             else 
             {
                 gameOver = true;
+                GameTimer.Stop();
             }
 
             txtScore.Text = "Score: " + score;
@@ -59,6 +61,44 @@ namespace Galaxy_Conqueror
             if (goDown == true && player.Top + player.Height < this.ClientSize.Height)
             {
                 player.Top += speed;
+            }
+
+            foreach (Control x in this.Controls)
+            {
+                if (x is PictureBox && (string)x.Tag == "energy")
+                {
+                    if (player.Bounds.IntersectsWith(x.Bounds))
+                    {
+                        this.Controls.Remove(x);
+                        ((PictureBox)x).Dispose();
+                        energyBar.Value = 100;
+                        playerEnergy = 100;
+                    }
+                }
+
+                if (x is PictureBox && (string)x.Tag == "fighter")
+                {
+                    x.Top += 2;
+                }
+
+                foreach (Control j in this.Controls)
+                {
+                    if (j is PictureBox && (string)j.Tag == "bullet" && x is PictureBox && (string)x.Tag == "fighter")
+                    {
+                        if (x.Bounds.IntersectsWith(j.Bounds))
+                        {
+                            score++;
+
+                            this.Controls.Remove(j);
+                            ((PictureBox)j).Dispose();
+                            this.Controls.Remove(x);
+                            ((PictureBox)x).Dispose();
+                            fightersList.Remove(((PictureBox)x));
+
+
+                        }
+                    }
+                }
             }
         }
 
@@ -101,9 +141,16 @@ namespace Galaxy_Conqueror
                 goDown = false;
             }
 
-            if (e.KeyCode == Keys.Space)
+            if (e.KeyCode == Keys.Space && playerEnergy > 0)
             {
+                playerEnergy--;
+                energyBar.Value --;
                 ShootBullet();
+
+                if (playerEnergy < 1)
+                {
+                    DropEnergy();
+                }
             }
         }
 
@@ -121,7 +168,7 @@ namespace Galaxy_Conqueror
             fighter.Tag = "fighter";
             fighter.Image = Properties.Resources.Kla_ed___Fighter___Base;
             fighter.Left = randNum.Next(10, this.ClientSize.Width - fighter.Width);
-            fighter.Top = 0;
+            fighter.Top = -50;
             fighter.SizeMode = PictureBoxSizeMode.AutoSize;
             fightersList.Add(fighter);
             this.Controls.Add(fighter);
@@ -134,7 +181,7 @@ namespace Galaxy_Conqueror
             energy.Image = Properties.Resources.energy;
             energy.SizeMode = PictureBoxSizeMode.AutoSize;
             energy.Left = randNum.Next(10, this.ClientSize.Width - energy.Width);
-            energy.Top = randNum.Next(10, this.ClientSize.Height - energy.Height);
+            energy.Top = randNum.Next(60, this.ClientSize.Height - energy.Height);
             energy.Tag = "energy";
             this.Controls.Add(energy);
             energy.BringToFront();
@@ -144,6 +191,30 @@ namespace Galaxy_Conqueror
 
         private void RestartGame()
         {
+            player.Image = Properties.Resources.Main_Ship___Base___Full_health;
+
+            foreach (PictureBox i in fightersList)
+            {
+                this.Controls.Remove(i);
+            }
+
+            fightersList.Clear();
+
+            for (int i = 0; i < 3; i++)
+            {
+                MakeFighters();
+            }
+
+            goUp = false;
+            goDown = false;
+            goLeft = false;
+            goRight = false;
+
+            playerHealth = 100;
+            playerEnergy = 100;
+            score = 0;
+
+            GameTimer.Start();
 
         }
     }
